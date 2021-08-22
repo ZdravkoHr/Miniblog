@@ -9,7 +9,7 @@ const store = configureStore({
 	},
 });
 
-const blogsSelector = state => state.blogs.blogs;
+const blogsSelector = state => state.blogs;
 const userSelector = state => state.user.user;
 
 export { blogsSelector, userSelector };

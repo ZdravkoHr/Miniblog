@@ -16,6 +16,10 @@ const HeaderEl = styled.header`
 		display: flex;
 		align-items: center;
 		flex-basis: 300px;
+
+		@media (max-width: 520px) {
+			flex-basis: 100px;
+		}
 	}
 
 	.search-area .search-icon {

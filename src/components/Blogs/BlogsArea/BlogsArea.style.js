@@ -4,7 +4,7 @@ const BlogsEl = styled.section`
 	& {
 		margin-top: 120px;
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(auto-fit, minmax(250px, auto));
 		grid-gap: 20px;
 	}
 
