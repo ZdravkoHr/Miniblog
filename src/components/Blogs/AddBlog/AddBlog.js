@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import firebase from 'firebase';
 import { addBlog } from '../../../store/slices/blogsSlice';
 import { userSelector } from '../../../store/store';
-import { db } from '../../../firebase';
+import { firebase, db } from '../../../firebase';
 
-import AddBlogEl from './AddBlog.style';
 import NotificationBox from '../../Notifications/NotificationBox';
+import AddBlogEl from './AddBlog.style';
 
 const AddBlog = () => {
 	const dispatch = useDispatch();

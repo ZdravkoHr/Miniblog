@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { auth } from '../../firebase';
 import { login } from '../../store/slices/userSlice';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import NotificationBox from '../Notifications/NotificationBox';
 
 const RegisterPage = () => {
 	const dispatch = useDispatch();
-	const history = useHistory();
+	const navigate = useNavigate();
 
 	const userObj = {
 		email: '',
@@ -43,7 +43,7 @@ const RegisterPage = () => {
 				})
 			);
 
-			history.push('/');
+			navigate('/');
 		} catch (e) {
 			console.log(e.message);
 		}

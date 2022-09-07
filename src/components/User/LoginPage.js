@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { login } from '../../store/slices/userSlice';
 
@@ -8,7 +8,7 @@ import NotificationBox from '../Notifications/NotificationBox';
 
 const LoginPage = () => {
 	const dispatch = useDispatch();
-	const history = useHistory();
+	const navigate = useNavigate();
 
 	const [fail, setFail] = useState(false);
 	const [failTimeout, setFailTimeout] = useState(null);
@@ -30,7 +30,7 @@ const LoginPage = () => {
 				})
 			);
 
-			history.push('/');
+			navigate('/');
 		} catch (e) {
 			setFail(true);
 			setFailMessage(e.message);

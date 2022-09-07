@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 import {
 	BrowserRouter as Router,
 	Route,
-	Switch,
-	Redirect,
+	Routes,
+	Navigate,
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -63,23 +63,17 @@ function App() {
 		<div className='App'>
 			<Router>
 				<Header />
-				<Switch>
-					<Route path='/' exact>
-						<BlogsArea />
-					</Route>
-					<Route path='/addBlog'>
-						{user ? <AddBlog /> : <Redirect to='/login'></Redirect>}
-					</Route>
-					<Route path='/blog/:id' exact>
-						<SingleBlog></SingleBlog>
-					</Route>
-					<Route path='/login'>
-						<LoginPage />
-					</Route>
-					<Route path='/register'>
-						<RegisterPage />
-					</Route>
-				</Switch>
+				<Routes>
+					<Route path='/' exact element={<BlogsArea />} />
+
+					<Route path='/addBlog' element={<Navigate to='/login' />} />
+
+					<Route path='/blog/:id' exact element={<SingleBlog />} />
+
+					<Route path='/login' element={<LoginPage />} />
+
+					<Route path='/register' element={<RegisterPage />} />
+				</Routes>
 			</Router>
 		</div>
 	);
