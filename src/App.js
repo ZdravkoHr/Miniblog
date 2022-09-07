@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { db, auth } from './firebase';
+import { firebase, db, auth } from './firebase';
 import { setBlogs } from './store/slices/blogsSlice';
 import { login, logout } from './store/slices/userSlice';
 import { userSelector } from './store/store';

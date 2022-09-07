@@ -14,6 +14,7 @@ import { userSelector } from '../../store/store';
 import { logout } from '../../store/slices/userSlice';
 import { setFilter } from '../../store/slices/blogsSlice';
 import defaultPic from '../../assets/profile.png';
+import { auth } from '../../firebase';
 
 const Header = () => {
 	const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const Header = () => {
 	};
 
 	const exit = () => {
+		auth.signOut();
 		dispatch(logout());
 	};
 
