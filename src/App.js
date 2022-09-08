@@ -1,11 +1,7 @@
 import React, { useEffect } from 'react';
 
-import {
-	BrowserRouter as Router,
-	Route,
-	Routes,
-	Navigate,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoggedRoute from './router/LoggedRoute';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { firebase, db, auth } from './firebase';
@@ -65,8 +61,10 @@ function App() {
 				<Header />
 				<Routes>
 					<Route path='/' exact element={<BlogsArea />} />
-
-					<Route path='/addBlog' element={<Navigate to='/login' />} />
+					<Route
+						path='/addBlog'
+						element={<LoggedRoute component={<AddBlog />} />}
+					/>
 
 					<Route path='/blog/:id' exact element={<SingleBlog />} />
 
