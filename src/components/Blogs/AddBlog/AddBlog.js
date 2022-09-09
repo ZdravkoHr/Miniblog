@@ -9,15 +9,17 @@ import AddBlogEl from './AddBlog.style';
 
 const AddBlog = () => {
 	const dispatch = useDispatch();
+	const test = useSelector(userSelector);
 
-	const { username: author } = useSelector(userSelector);
+	const { username: authorName, uid: authorId } = useSelector(userSelector);
 
 	const initialBlog = {
 		title: '',
 		subtitle: '',
 		thumbnail: '',
 		content: '',
-		author,
+		authorName,
+		authorId,
 	};
 
 	const [blog, setBlog] = useState({ ...initialBlog });

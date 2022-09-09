@@ -25,7 +25,7 @@ const LoginPage = () => {
 					password: userAuth.user.password,
 					username: userAuth.user.displayName,
 					profilePic: userAuth.user.photoURL,
-					uid: userAuth.user.uid,
+					uid: userAuth.user.id,
 				})
 			);
 
