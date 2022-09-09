@@ -1,8 +1,7 @@
-import React from 'react';
-import SingleBlogEl from './SingleBlog.style';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { blogsSelector } from '../../../store/store';
+import SingleBlogEl from './SingleBlog.style';
 
 const SingleBlog = () => {
 	const { id } = useParams();
@@ -11,6 +10,7 @@ const SingleBlog = () => {
 		blog => blog.id === id
 	)[0];
 	const { title, subtitle, author, thumbnail, content } = blog || {};
+
 	return (
 		<section className='single-blog-wrapper container'>
 			<SingleBlogEl>

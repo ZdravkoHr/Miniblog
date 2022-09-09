@@ -1,15 +1,13 @@
-import React, { useEffect } from 'react';
-
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoggedRoute from './router/LoggedRoute';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { firebase, db, auth } from './firebase';
+import { useDispatch } from 'react-redux';
+import { db, auth } from './firebase';
 import { setBlogs } from './store/slices/blogsSlice';
 import { login, logout } from './store/slices/userSlice';
-import { userSelector } from './store/store';
 
 import './App.css';
+
+import LoggedRoute from './router/LoggedRoute';
 import Header from './components/Header/Header';
 import BlogsArea from './components/Blogs/BlogsArea/BlogsArea';
 import AddBlog from './components/Blogs/AddBlog/AddBlog';
@@ -19,7 +17,6 @@ import RegisterPage from './components/User/RegisterPage';
 
 function App() {
 	const dispatch = useDispatch();
-	const user = useSelector(userSelector);
 
 	useEffect(() => {
 		db.collection('blogs')
@@ -31,29 +28,26 @@ function App() {
 				}));
 				dispatch(setBlogs(blogsArray));
 			});
-
-		//eslint-disable-next-line
-	}, []);
+	}, [dispatch]);
 
 	useEffect(() => {
 		auth.onAuthStateChanged(userAuth => {
-			if (userAuth) {
-				dispatch(
-					login({
-						email: userAuth.email,
-						password: userAuth.password,
-						username: userAuth.displayName,
-						profilePic: userAuth.photoURL,
-						uid: userAuth.uid,
-					})
-				);
-
+			if (!userAuth) {
+				dispatch(logout());
 				return;
 			}
 
-			dispatch(logout());
+			dispatch(
+				login({
+					email: userAuth.email,
+					password: userAuth.password,
+					username: userAuth.displayName,
+					profilePic: userAuth.photoURL,
+					uid: userAuth.uid,
+				})
+			);
 		});
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div className='App'>
@@ -65,11 +59,8 @@ function App() {
 						path='/addBlog'
 						element={<LoggedRoute component={<AddBlog />} />}
 					/>
-
 					<Route path='/blog/:id' exact element={<SingleBlog />} />
-
 					<Route path='/login' element={<LoginPage />} />
-
 					<Route path='/register' element={<RegisterPage />} />
 				</Routes>
 			</Router>

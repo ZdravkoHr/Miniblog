@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { login } from '../../store/slices/userSlice';
-
 import NotificationBox from '../Notifications/NotificationBox';
 
 const LoginPage = () => {

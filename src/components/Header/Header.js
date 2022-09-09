@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import HeaderEl from './Header.style';
+import { userSelector } from '../../store/store';
+import { logout } from '../../store/slices/userSlice';
+import { setFilter } from '../../store/slices/blogsSlice';
+import { auth } from '../../firebase';
 import {
 	Search,
 	AddBox,
@@ -8,13 +12,8 @@ import {
 	PowerSettingsNew,
 	ExitToApp,
 } from '@material-ui/icons';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { userSelector } from '../../store/store';
-import { logout } from '../../store/slices/userSlice';
-import { setFilter } from '../../store/slices/blogsSlice';
+
 import defaultPic from '../../assets/profile.png';
-import { auth } from '../../firebase';
 
 const Header = () => {
 	const dispatch = useDispatch();

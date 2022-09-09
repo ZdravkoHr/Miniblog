@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRedirect } from 'react-router-dom';
-import { addBlog } from '../../../store/slices/blogsSlice';
 import { userSelector } from '../../../store/store';
+import { addBlog } from '../../../store/slices/blogsSlice';
 import { firebase, db } from '../../../firebase';
 
 import NotificationBox from '../../Notifications/NotificationBox';
@@ -10,7 +9,6 @@ import AddBlogEl from './AddBlog.style';
 
 const AddBlog = () => {
 	const dispatch = useDispatch();
-	const user = useSelector(userSelector);
 
 	const { username: author } = useSelector(userSelector);
 

@@ -1,7 +1,5 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { blogsSelector } from '../../../store/store.js';
-import uuid from 'react-uuid';
 import BlogsEl from './BlogsArea.style.js';
 import Blog from './Blog';
 
@@ -26,7 +24,7 @@ const BlogsArea = () => {
 				)}
 
 				{blogs.map(blog => {
-					return <Blog key={uuid()} {...blog}></Blog>;
+					return <Blog key={blog.id} {...blog}></Blog>;
 				})}
 			</BlogsEl>
 		</main>
