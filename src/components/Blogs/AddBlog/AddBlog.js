@@ -6,10 +6,10 @@ import { firebase, db } from '../../../firebase';
 
 import NotificationBox from '../../Notifications/NotificationBox';
 import AddBlogEl from './AddBlog.style';
+import { serverTimestamp } from 'firebase/firestore';
 
 const AddBlog = () => {
 	const dispatch = useDispatch();
-	const test = useSelector(userSelector);
 
 	const { username: authorName, uid: authorId } = useSelector(userSelector);
 
@@ -26,13 +26,12 @@ const AddBlog = () => {
 	const [activeSuccess, setActiveSuccess] = useState(false);
 	const [deactivateTimeout, setDeactivateTimeout] = useState(null);
 
-	const pushBlog = () => {
-		const finalBlog = {
+	const pushBlog = async () => {
+		dispatch(addBlog(blog));
+		db.collection('blogs').add({
 			...blog,
 			timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-		};
-		dispatch(addBlog(finalBlog));
-		db.collection('blogs').add(finalBlog);
+		});
 	};
 
 	const updateUI = () => {

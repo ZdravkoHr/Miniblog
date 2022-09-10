@@ -7,11 +7,11 @@ const blogsSlice = createSlice({
 		filter: '',
 	},
 	reducers: {
-		setBlogs: (state, payload) => {
-			state.blogs = payload.payload;
+		setBlogs: (state, { payload }) => {
+			state.blogs = payload;
 		},
 
-		addBlog: (state, payload) => {
+		addBlog: (state, { payload }) => {
 			state.blogs.push(payload);
 		},
 

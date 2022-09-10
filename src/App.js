@@ -25,6 +25,7 @@ function App() {
 				const blogsArray = snapshot.docs.map(doc => ({
 					id: doc.id,
 					...doc.data(),
+					timestamp: null,
 				}));
 				dispatch(setBlogs(blogsArray));
 			});
