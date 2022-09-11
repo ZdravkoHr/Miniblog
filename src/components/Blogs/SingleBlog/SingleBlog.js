@@ -26,7 +26,6 @@ const SingleBlog = () => {
 	const deleteBlog = async () => {
 		try {
 			await deleteDoc(doc(db, 'blogs', blog.id));
-			// setErrorText('');
 			navigate('/');
 		} catch (err) {
 			setErrorText(err.message);
@@ -54,7 +53,12 @@ const SingleBlog = () => {
 							<div className='title-row'>
 								<h2 className='title'>{title}</h2>
 								{userID && userID === blog?.authorID && (
-									<EditButtons deleteCb={() => setShowConfirm(true)} />
+									<EditButtons
+										editCb={() => {
+											navigate('/blogInfo/' + blog?.id);
+										}}
+										deleteCb={() => setShowConfirm(true)}
+									/>
 								)}
 							</div>
 							<h4 className='subtitle'>{subtitle}</h4>

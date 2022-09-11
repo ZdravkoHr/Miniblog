@@ -57,7 +57,11 @@ function App() {
 				<Routes>
 					<Route path='/' exact element={<BlogsArea />} />
 					<Route
-						path='/blogInfo'
+						path='blogInfo'
+						element={<LoggedRoute component={<BlogInfo />} />}
+					/>
+					<Route
+						path='blogInfo/:id'
 						element={<LoggedRoute component={<BlogInfo />} />}
 					/>
 					<Route path='/blog/:id' exact element={<SingleBlog />} />

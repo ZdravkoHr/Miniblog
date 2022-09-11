@@ -15,12 +15,18 @@ const blogsSlice = createSlice({
 			state.blogs.push(payload);
 		},
 
+		editBlog: (state, { payload }) => {
+			state.blogs = state.blogs.map(currentBlog => {
+				return payload.id === currentBlog.id ? payload : currentBlog;
+			});
+		},
+
 		setFilter: (state, { payload }) => {
 			state.filter = payload;
 		},
 	},
 });
 
-export const { setBlogs, addBlog, setFilter } = blogsSlice.actions;
+export const { setBlogs, addBlog, editBlog, setFilter } = blogsSlice.actions;
 
 export default blogsSlice.reducer;
