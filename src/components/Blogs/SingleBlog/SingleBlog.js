@@ -1,11 +1,12 @@
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
-import { blogsSelector } from '../../../store/store';
+import { blogsSelector, userSelector } from '../../../store/store';
+import EditButtons from './EditButtons';
 import SingleBlogEl from './SingleBlog.style';
-import { firebase } from '../../../firebase';
 
 const SingleBlog = () => {
 	const { id } = useParams();
+	const { uid: userID } = useSelector(userSelector);
 
 	const blog = useSelector(blogsSelector).blogs.filter(
 		blog => blog.id === id
@@ -16,7 +17,11 @@ const SingleBlog = () => {
 		<section className='single-blog-wrapper container'>
 			<SingleBlogEl>
 				<div className='top-info'>
-					<h2 className='title'>{title}</h2>
+					<div className='title-row'>
+						<h2 className='title'>{title}</h2>
+						{console.log(userID, blog, userID === blog.authorID)}
+						{userID === blog.authorID && <EditButtons />}
+					</div>
 					<h4 className='subtitle'>{subtitle}</h4>
 					<h6 className='author'>Published by: {authorName}</h6>
 				</div>

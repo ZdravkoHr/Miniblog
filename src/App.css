@@ -11,6 +11,9 @@
 
 :root {
 	--green: #53b553;
+	--dark-green: #488c48;
+	--red: #c93838;
+	--dark-red: #aa2424;
 }
 
 .container {
@@ -25,6 +28,24 @@
 	padding: 12px 20px;
 	border-radius: 5px;
 	cursor: pointer;
+}
+
+.btn-green {
+	background: var(--green);
+	color: #fff;
+}
+
+.btn-green:hover {
+	background: var(--dark-green);
+}
+
+.btn-red:hover {
+	background: var(--dark-red);
+}
+
+.btn-red {
+	background: var(--red);
+	color: #fff;
 }
 
 img {

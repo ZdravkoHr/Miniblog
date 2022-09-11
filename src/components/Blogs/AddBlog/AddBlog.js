@@ -11,7 +11,7 @@ import { serverTimestamp } from 'firebase/firestore';
 const AddBlog = () => {
 	const dispatch = useDispatch();
 
-	const { username: authorName, uid: authorId } = useSelector(userSelector);
+	const { username: authorName, uid: authorID } = useSelector(userSelector);
 
 	const initialBlog = {
 		title: '',
@@ -19,7 +19,7 @@ const AddBlog = () => {
 		thumbnail: '',
 		content: '',
 		authorName,
-		authorId,
+		authorID,
 	};
 
 	const [blog, setBlog] = useState({ ...initialBlog });
