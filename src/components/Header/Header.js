@@ -46,7 +46,7 @@ const Header = () => {
 							<Home />
 						</Link>
 
-						<Link to='/addBlog'>
+						<Link to='/blogInfo'>
 							<AddBox />
 						</Link>
 

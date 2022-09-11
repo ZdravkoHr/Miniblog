@@ -10,7 +10,7 @@ import './App.css';
 import LoggedRoute from './router/LoggedRoute';
 import Header from './components/Header/Header';
 import BlogsArea from './components/Blogs/BlogsArea/BlogsArea';
-import AddBlog from './components/Blogs/AddBlog/AddBlog';
+import BlogInfo from './components/Blogs/BlogInfo/BlogInfo';
 import SingleBlog from './components/Blogs/SingleBlog/SingleBlog';
 import LoginPage from './components/User/LoginPage';
 import RegisterPage from './components/User/RegisterPage';
@@ -57,8 +57,8 @@ function App() {
 				<Routes>
 					<Route path='/' exact element={<BlogsArea />} />
 					<Route
-						path='/addBlog'
-						element={<LoggedRoute component={<AddBlog />} />}
+						path='/blogInfo'
+						element={<LoggedRoute component={<BlogInfo />} />}
 					/>
 					<Route path='/blog/:id' exact element={<SingleBlog />} />
 					<Route path='/login' element={<LoginPage />} />
