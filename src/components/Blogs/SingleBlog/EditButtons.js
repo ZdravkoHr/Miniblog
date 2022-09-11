@@ -1,9 +1,11 @@
 import EditButtonsEl from './EditButtons.style';
-const EditButtons = () => {
+const EditButtons = ({ deleteCb }) => {
 	return (
 		<EditButtonsEl>
 			<button className='btn btn-green'>Edit</button>
-			<button className='btn btn-red'>Delete</button>
+			<button className='btn btn-red' onClick={deleteCb}>
+				Delete
+			</button>
 		</EditButtonsEl>
 	);
 };
