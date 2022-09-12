@@ -7,8 +7,6 @@ const SingleBlogEl = styled.article`
 
 	img {
 		display: block;
-		max-width: 600px;
-		max-height: 400px;
 		margin: 40px auto;
 	}
 
@@ -28,6 +26,15 @@ const SingleBlogEl = styled.article`
 
 	.subtitle {
 		font-size: 30px;
+	}
+
+	.author {
+		font-weight: normal;
+		margin-top: 30px;
+	}
+
+	pre {
+		white-space: pre-wrap;
 	}
 `;
 

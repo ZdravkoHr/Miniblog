@@ -4,7 +4,7 @@ const BlogsEl = styled.section`
 	& {
 		margin-top: 120px;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+		grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
 		grid-gap: 20px;
 	}
 
@@ -32,7 +32,7 @@ const BlogsEl = styled.section`
 	}
 
 	.blog .thumbnail {
-		height: 170px;
+		height: 200px;
 	}
 `;
 
