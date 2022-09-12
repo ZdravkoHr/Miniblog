@@ -33,8 +33,8 @@ const SingleBlog = () => {
 	};
 
 	useEffect(() => {
-		setLoaded(!!userID && !!blog);
-	}, [userID, blog]);
+		setLoaded(!!blog);
+	}, [blog]);
 
 	return (
 		<>
