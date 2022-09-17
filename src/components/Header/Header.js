@@ -50,7 +50,7 @@ const Header = () => {
 							<AddBox />
 						</Link>
 
-						{user ? (
+						{user?.logged ? (
 							<PowerSettingsNew onClick={exit} />
 						) : (
 							<Link to='/login'>
